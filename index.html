@@ -22,19 +22,24 @@
     <div id="game"></div>
 
     <script>
-        const urlExterna = 'https://archive.org';
+        const urlExterna = 'https://archive.org/download/psp-cso-collection/Formula%201%20-%2006%20(Europe).cso';
 
         window.EJS_player = '#game';
         window.EJS_core = 'psp';
         window.EJS_gameName = 'GP06';
         window.EJS_gameUrl = urlExterna;
-        window.EJS_pathtodata = 'https://emulatorjs.org';
+        
+        // Aqui vai APENAS a pasta (sem o loader.js)
+        window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+        
         window.EJS_threads = true;
         window.EJS_startOnLoaded = true;
 
         const script = document.createElement('script');
-        script.src = 'https://emulatorjs.org.js';
+        // Aqui vai o caminho completo com o loader.js
+        script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
         document.body.appendChild(script);
     </script>
 </body>
 </html>
+
