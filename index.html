@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GP06 Web</title>
+    
+    <!-- 1. Configuração colocada ANTES do coi-serviceworker -->
+    <script>
+        window.coi = {
+            coepCredentialless: () => true
+        };
+    </script>
     <script src="coi-serviceworker.js"></script>
+
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
         #game { width: 100%; height: 100%; }
@@ -14,14 +22,12 @@
     <div id="game"></div>
 
     <script>
-        const urlExterna = 'https://archive.org/download/psp-cso-collection/Formula%201%20-%2006%20%28Europe%29.cso';
+        const urlExterna = 'https://archive.org';
 
         window.EJS_player = '#game';
         window.EJS_core = 'psp';
         window.EJS_gameName = 'GP06';
         window.EJS_gameUrl = urlExterna;
-        
-        // URLs corrigidas da CDN oficial do EmulatorJS
         window.EJS_pathtodata = 'https://emulatorjs.org';
         window.EJS_threads = true;
         window.EJS_startOnLoaded = true;
