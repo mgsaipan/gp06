@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FO06 Engine</title>
+    <script src="coi-serviceworker.js"></script>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #menu { text-align: center; padding: 20px; }
+        select, input, button { font-size: 16px; padding: 10px; margin: 8px 0; border-radius: 6px; border: none; }
+        button { background: #e10600; color: #fff; font-weight: bold; cursor: pointer; }
+        #game { width: 100%; height: 100%; display: none; }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h2>FO06 Web Player</h2>
+        <p>Selecione o sistema e o arquivo do jogo no seu celular:</p>
+        <select id="core">
+            <option value="gba">Game Boy Advance (.gba)</option>
+            <option value="psp">PlayStation Portable (.iso / .cso)</option>
+            <option value="snes">Super Nintendo (.sfc / .smc)</option>
+            <option value="nes">NES (.nes)</option>
+        </select><br>
+        <input type="file" id="romInput"><br>
+        <button onclick="iniciarTeste()">Iniciar Jogo</button>
+    </div>
+    <div id="game"></div>
+
+    <script>
+        function iniciarTeste() {
+            const file = document.getElementById('romInput').files[0];
+            const core = document.getElementById('core').value;
+            if (!file) return alert('Escolha um arquivo de jogo primeiro!');
+
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game').style.display = 'block';
+
+            window.EJS_player = '#game';
+            window.EJS_core = core;
+            window.EJS_gameName = 'FO06 Test';
+            window.EJS_gameUrl = URL.createObjectURL(file);
+            window.EJS_pathtodata = 'https://emulatorjs.org';
+            window.EJS_startOnLoaded = true;
+
+            const script = document.createElement('script');
+            script.src = 'https://emulatorjs.orgloader.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
+          
