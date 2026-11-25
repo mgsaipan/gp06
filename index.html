@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GP06 Web</title>
+    <title>GP09 Web</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏁</text></svg>">
     
     <!-- 1. Configuração colocada ANTES do coi-serviceworker -->
     <script>
@@ -24,23 +25,26 @@
     <script>
         window.EJS_player = '#game';
         window.EJS_core = 'psp';
-        window.EJS_gameName = 'GP06';
-        
-        // Adicionado /track06.chd no final para o emulador identificar o formato CHD
+        window.EJS_gameName = 'GP09';
         window.EJS_gameUrl = 'https://' + 'proxy-rom.mgeversa1.workers.dev/track09.iso';
         
+        // Linhas essenciais que estavam faltando:
         window.EJS_pathtodata = 'https://' + 'cdn.emulatorjs.org/stable/data/';
         window.EJS_threads = true;
         window.EJS_startOnLoaded = true;
         window.EJS_CacheLimit = 1073741824;
-        window.EJS_gameID = 200901;
+        window.EJS_gameID = 200902;
+
         window.EJS_defaultOptions = {
-         'ppsspp_auto_frameskip': 'enabled',
-         'ppsspp_frameskip': '1',
-         'ppsspp_internal_resolution': '480x272',
-        'ppsspp_lazy_texture_caching': 'enabled',
-        'ppsspp_fast_memory': 'enabled'
-};
+            'ppsspp_auto_frameskip': 'enabled',
+            'ppsspp_frameskip': '2',
+            'ppsspp_internal_resolution': '480x272',
+            'ppsspp_cpu_core': 'jit',
+            'ppsspp_locked_cpu_speed': '111',
+            'ppsspp_lazy_texture_caching': 'enabled',
+            'ppsspp_fast_memory': 'enabled',
+            'ppsspp_software_skinning': 'enabled'
+        };
 
         const script = document.createElement('script');
         script.src = 'https://' + 'cdn.emulatorjs.org/stable/data/loader.js';
