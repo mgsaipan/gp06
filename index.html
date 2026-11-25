@@ -34,6 +34,13 @@
         window.EJS_startOnLoaded = true;
         window.EJS_CacheLimit = 1073741824;
         window.EJS_gameID = 200901;
+        window.EJS_defaultOptions = {
+         'ppsspp_auto_frameskip': 'enabled',
+         'ppsspp_frameskip': '1',
+         'ppsspp_internal_resolution': '480x272',
+        'ppsspp_lazy_texture_caching': 'enabled',
+        'ppsspp_fast_memory': 'enabled'
+};
 
         const script = document.createElement('script');
         script.src = 'https://' + 'cdn.emulatorjs.org/stable/data/loader.js';
